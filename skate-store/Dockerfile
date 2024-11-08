@@ -19,7 +19,7 @@ FROM node:18-alpine
 
 # Set environment variables for production
 ENV NODE_ENV=production
-ENV PORT=3000
+ENV PORT=80
 
 # Set working directory
 WORKDIR /app
@@ -33,8 +33,8 @@ COPY --from=builder /app/public ./public
 # Install only production dependencies
 RUN yarn install --legacy-peer-deps --production
 
-# Expose port
-EXPOSE 3000
+# Expose port 80 to the host
+EXPOSE 80
 
 # Start Next.js application
-CMD ["yarn", "start"]
+CMD ["yarn", "start", "-p", "80"]  # Use -p to specify the port for Next.js to listen on
