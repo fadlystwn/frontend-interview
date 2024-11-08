@@ -5,14 +5,14 @@ FROM node:18-alpine AS builder
 WORKDIR /app
 
 # Install dependencies
-COPY package.json package-lock.json ./
-RUN npm install --legacy-peer-deps
+COPY package.json yarn.lock ./
+RUN yarn install --legacy-peer-deps
 
 # Copy the rest of the application files
 COPY . .
 
 # Build the Next.js application
-RUN npm run build
+RUN yarn build
 
 # Stage 2: Create the production image
 FROM node:18-alpine
@@ -26,15 +26,15 @@ WORKDIR /app
 
 # Copy the built files and production dependencies
 COPY --from=builder /app/package.json ./
-COPY --from=builder /app/package-lock.json ./
+COPY --from=builder /app/yarn.lock ./
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
 
 # Install only production dependencies
-RUN npm install --legacy-peer-deps --only=production
+RUN yarn install --legacy-peer-deps --production
 
 # Expose port
 EXPOSE 3000
 
 # Start Next.js application
-CMD ["npm", "start"]
+CMD ["yarn", "start"]
