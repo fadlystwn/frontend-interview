@@ -9,7 +9,7 @@ env:
   ECR_REPOSITORY: frontend-repo                # Set to your Amazon ECR repository name
   ECS_SERVICE: skate-ecs-service-name          # Set to your Amazon ECS service name
   ECS_CLUSTER: devCluster                      # Set to your Amazon ECS cluster name
-  ECS_TASK_DEFINITION: skate-task-definition   # Set to the path to your ECS task definition file
+  ECS_TASK_DEFINITION: skate-task-definition:1   # Set to the path to your ECS task definition file
   CONTAINER_NAME: skateContainer               # Set to the container name in your task definition
 
 permissions:
