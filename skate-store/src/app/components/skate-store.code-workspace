@@ -1,0 +1,50 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		}
+	],
+	"settings": {
+		// Enable format on save for automatic code formatting
+		"editor.formatOnSave": true,
+		// Configure the default formatter
+		"[javascript]": {
+			"editor.defaultFormatter": "esbenp.prettier-vscode"
+		},
+		"[typescript]": {
+			"editor.defaultFormatter": "esbenp.prettier-vscode"
+		},
+		"[json]": {
+			"editor.defaultFormatter": "esbenp.prettier-vscode"
+		},
+		// Configure TypeScript settings
+		"typescript.tsdk": "node_modules/typescript/lib",
+		// Enable ESLint for linting
+		"eslint.validate": ["javascript", "typescript", "typescriptreact", "javascriptreact"],
+		// Adjust search exclusion to improve performance
+		"search.exclude": {
+			"**/node_modules": true,
+			"**/dist": true,
+			"**/build": true,
+			"**/.git": true
+		},
+		// Exclude large directories in file explorer
+		"files.exclude": {
+			"**/node_modules": true,
+			"**/dist": true,
+			"**/build": true
+		},
+		// Configure workspace terminal to use bash (or other preferred shell)
+		"terminal.integrated.defaultProfile.windows": "Git Bash",
+		"terminal.integrated.defaultProfile.linux": "bash",
+		// Additional language-specific settings for TypeScript
+		"typescript.format.enable": true,
+		// Configure auto imports and organize imports on save
+		"typescript.preferences.importModuleSpecifier": "relative",
+		"typescript.preferences.includePackageJsonAutoImports": "on",
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": "always",
+			"source.fixAll": "always"
+		}
+	}
+}
