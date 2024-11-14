@@ -13,7 +13,6 @@ import React, { useState } from 'react'
 const Navigation: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
-  const [cartCount, setCartCount] = useState(3) // Example count, update based on your logic
 
   const toggleMenu = () => setMenuOpen(!menuOpen)
   const toggleSearch = () => setSearchOpen(!searchOpen)
@@ -55,11 +54,9 @@ const Navigation: React.FC = () => {
           {/* Cart Icon with Badge */}
           <div className="relative">
             <ShoppingBagIcon className="h-8 w-8 text-white hover:text-yellow-300 cursor-pointer" />
-            {cartCount > 0 && (
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-2 py-0.5">
-                {cartCount}
-              </span>
-            )}
+            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-2 py-0.5">
+              3
+            </span>
           </div>
 
           {/* Hamburger Menu Icon */}
