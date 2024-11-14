@@ -12,8 +12,11 @@ import React, { useState } from 'react'
 
 const Navigation: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [searchOpen, setSearchOpen] = useState(false)
+  const [cartCount, setCartCount] = useState(3) // Example count, update based on your logic
 
   const toggleMenu = () => setMenuOpen(!menuOpen)
+  const toggleSearch = () => setSearchOpen(!searchOpen)
 
   return (
     <nav className="bg-black text-white p-6 fixed top-0 w-full z-10">
@@ -42,10 +45,23 @@ const Navigation: React.FC = () => {
         </div>
 
         {/* Icons */}
-        <div className="flex gap-4">
-          <MagnifyingGlassIcon className="h-8 w-8 text-white hover:text-yellow-300 cursor-pointer" />
+        <div className="flex gap-4 items-center">
+          <MagnifyingGlassIcon
+            className="h-8 w-8 text-white hover:text-yellow-300 cursor-pointer"
+            onClick={toggleSearch}
+          />
           <UserCircleIcon className="h-8 w-8 text-white hover:text-yellow-300 cursor-pointer" />
-          <ShoppingBagIcon className="h-8 w-8 text-white hover:text-yellow-300 cursor-pointer" />
+
+          {/* Cart Icon with Badge */}
+          <div className="relative">
+            <ShoppingBagIcon className="h-8 w-8 text-white hover:text-yellow-300 cursor-pointer" />
+            {cartCount > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-2 py-0.5">
+                {cartCount}
+              </span>
+            )}
+          </div>
+
           {/* Hamburger Menu Icon */}
           <button className="md:hidden" onClick={toggleMenu}>
             {menuOpen ? (
@@ -56,6 +72,17 @@ const Navigation: React.FC = () => {
           </button>
         </div>
       </div>
+
+      {/* Search Input */}
+      {searchOpen && (
+        <div className="mt-4 flex justify-center">
+          <input
+            type="text"
+            placeholder="Search..."
+            className="bg-gray-800 text-white p-2 rounded w-full md:w-1/2"
+          />
+        </div>
+      )}
 
       {/* Mobile Dropdown Menu */}
       {menuOpen && (

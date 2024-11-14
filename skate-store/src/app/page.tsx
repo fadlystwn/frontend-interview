@@ -3,6 +3,7 @@ import FeaturedProducts from './components/FeaturedProducts'
 import Footer from './components/Footer'
 import Hero from './components/Hero'
 import Navigation from './components/Navigation'
+import ProductList from './components/ProductList'
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Navigation />
       <Hero />
       <FeaturedProducts />
+      <ProductList />
       <About />
       <Footer />
     </div>

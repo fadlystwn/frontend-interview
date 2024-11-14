@@ -30,7 +30,7 @@
         "trailingComma": "es5" 
       }
     ],
-    "indent": ["error", 2],
+    "indent": ["error", 2, { "SwitchCase": 1 }],
     "jsx-a11y/anchor-is-valid": [
       "error",
       {
