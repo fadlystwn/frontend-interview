@@ -79,7 +79,7 @@ Design and implement interface for E-Commerce platform which have core functiona
 
 4. Must Have Feature:
 
-- Implement pre-loading video for products with video.
+- Implement pre-loading video for products with video (pre-loading when the user lands on home page).
 
 - Add to cart feature, retain the user data so it remains available for future visits unless the user clears the browser data.
 
